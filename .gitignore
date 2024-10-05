@@ -2,7 +2,6 @@
 *.DS_Store
 
 # vim swap files
-
 *.swp
 *.h.swp
 *.mm.swp
@@ -20,10 +19,12 @@
 *.spv
 *.disasm
 *.elf
-# *.uf2
+*.uf2
 *.bin
 *.list
 *.o
+
+makeuf2
 
 /build
 /external
@@ -48,3 +49,4 @@ Thumbs.db
 *.metallibsym
 code/\
 \
+*.uf2
