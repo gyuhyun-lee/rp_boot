@@ -98,6 +98,17 @@ _start:
     msr control, r0
     isb // required by ARM
     ldr sp, =0x20040000  // set the PSP 
+    
+#if 0
+    // enable co-processors. GPIO coprocessor is enabled by bootROM
+    ldr.w r3, =(M33_BASE + M33_CPACR_OFFSET)
+    ldr r0, [r3]
+    mov r1, #(3 << 20)  
+    bic r0, r1
+    orr r0, #(1 << 20) // only 1(enable FPU in previleged mode) seems to be working
+    orr r0, #(1 << 8) // coprocessor 4(double precision)
+    str r0, [r3]
+#endif
 
 // @-----------------------------------------------------------------------------------------------------------------------------------
 configure_all_output_gpios :
